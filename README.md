@@ -51,7 +51,7 @@ Please help keep this project alive! Donations are welcome and will go towards f
 
 #### Résumé
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+You can see [PDF](https://raw.githubusercontent.com/georgix/Awesome-CV/master/zhangjing/cv.pdf)
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
@@ -59,7 +59,7 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 #### Cover Letter
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
+You can see [PDF](https://raw.githubusercontent.com/georgix/Awesome-CV/master/zhangjing/coverletter.pdf)
 
 | Without Sections | With Sections |
 |:---:|:---:|

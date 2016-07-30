@@ -560,13 +560,13 @@
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \setlength\leftskip{0.2cm}
     \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-      {\subentrydatestyle{#3}}{} 
-    \ifthenelse{\equal{#1}{}}
-      {}
-      {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
-      {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+      {\subentrydatestyle{#3}}
+      {\subentrydatestyle{#1}} \\
+    %% using \multicolumn with \ifthenelse will lead into error
+    %% \ifthenelse{\equal{#4}{}}
+    %%   {}
+    %%   {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+      \multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\
   \end{tabular*}
 }
 

@@ -562,7 +562,8 @@
     \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
       {\subentrydatestyle{#3}}
       {\subentrydatestyle{#1}} \\
-    %% using \multicolumn with \ifthenelse will lead into error
+      %% using \multicolumn with \ifthenelse will lead into error
+      %% http://tex.stackexchange.com/questions/42333/problem-with-ifthenelse-multicolumn
     %% \ifthenelse{\equal{#4}{}}
     %%   {}
     %%   {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}

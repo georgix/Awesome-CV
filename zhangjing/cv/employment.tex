@@ -11,40 +11,115 @@
 
 %---------------------------------------------------------
   \cventry
-    {Senior Android System Performance Engineer} % Job title
+    {Senior AOSP System Performance Engineer} % Job title
     {Lenovo Inc.} % Organization
     {Beijing, China} % Location
     {Apr. 2015 - Jul. 2016} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Responsible for system level performance tuning of ZUK series Android Smart phone including Z1, Z2, Z2 pro}
-        \item {Analysis of stability issue, native app crash and kernel crash}
-        \item {Analysis of overheat issue, with enhanced debug approach to dump traceview on device side}
-        \item {Analysis of power and battery issue, device fail to suspend}
-        \item {Analysis of memory issue, corruption and app or system level OOM, LMK}
-        \item {Developed a bootloader unlock protection module}
-        \item {Developed the overclock function on Z2}
-        \item {Adapting F2FS filesystem to ZUK smart phones}
-      \end{cvitems}
+      \begin{cvsubentries} % Description(s) of tasks/responsibilities
+        \cvsubentry
+          {}
+          {System Performance Tuning}
+          {2015-2016}
+          {I was a major member in tuning ZUK series Android smart phone performance: Z1(based on Qualcomm 8974), Z2, Z2 pro(both based on Qualcomm 8996). That covered power on/off time, wake up time, touch response time, benchmarking and etc. Comparing performance test shown our products could compete with major products on the market. The Antutu performance score was 145,741, defeating all known smart phone.}
+        \cvsubentry
+          {}
+          {Remote Debugging With GDB}
+          {2015}
+          {The RD work envorionment was linux terminal server, which was accessed from our PC through ssh or remote desktop protocols. The AOSP could only be built on the terminal server. When we need to debug a android device with gdb, the device was connected to our PC, and we had to copy the huge debug symbols from terminal server, which was really time consuming. With some research and experiments, I figured out a way to run gdb on linux terminal server to debug the Android device connected to PC, with the help of reverse port mapping. And this approach was later shared to all BSP and framework developers there.}
+        \cvsubentry
+          {}
+          {Bootloader Unlock Protection}
+          {2015}
+          {With the AOSP spirits, we allowed users to unlock their devices. At the same time we need a non-volatile mark to check if the device was unlocked, since providing OTA to modified system can lead to serious failure. We achieved this goal by store the unlock information in the trust zone domain, and provided a service for query of the unlock status.}
+        \cvsubentry
+          {}
+          {FSFS}
+          {2015-2016}
+          {F2FS is a actively developed file system started by Samsung, specially designed for NAND based storage. AOSP upstream has initial support for the new file system. With a lot patches to linux kernel, AOSP build system, lk, fastboot, vold and factory mode, F2FS worked flawlessly on ZUK smart phones. And by adopting F2FS, there was more than 100\% improvement in random write throughput.}
+        \cvsubentry
+          {}
+          {CPU Overclock}
+          {2016}
+          {Requested by some fans of ZUK, I managed to overclock the MSM8996 cpu frequency from 2.15GHz to 2.3GHz, gaining more than 5\% performance improvement. And this was a promotion highlight of ZUK Z2.}
+        \cvsubentry
+          {}
+          {Stability Issue Analysis}
+          {2015-2016}
+          {I did some analysis with native application crash and linux kernel crash, and most of the time I would just give some instructions on how to do this.}
+        \cvsubentry
+          {}
+          {Memory Issue Analysis}
+          {}
+          {I did some memory leak and memory corruption analysis. By fixing a AOSP bug in the ART exception handler, we got a working libc malloc debugger which was helpful for native leak and corruption issue analysis. I also handled app and system level OOM, LMK issues. Among all cases, there was a special memory leak occured in ION allocator, which was hard to debug because the ION memory was allocated from kernel space and mapped to user space.}
+        \cvsubentry
+          {}
+          {Battery Issue}
+          {2015-2016}
+          {One important parameter for a smart phone is how long the battery can last. Android phones in some rare case can stay awake, result in fast battery usage. We tried to find clues what had caused the problem, was it from a wake source or some one just hold a wakelock.}
+        \cvsubentry
+          {}
+          {Overheat}
+          {2015-2016}
+          {Overheat is a common problem on Android smart phones, because the ability and permision opened to APP developer. We worked out a runtime overheat monitor tool to prompt user to terminate the overheating APP. And we also enhanced this by dumping traceview on device side for analysis purpose.}
+      \end{cvsubentries}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Senior Software Engineer/Techical Deputy} % Job title
+    {Senior AOSP Software Engineer/Techical Deputy} % Job title
     {Mediatek Inc.} % Organization
     {Beijing, China} % Location
     {Jun. 2011 - Apr. 2015} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Android system level techical support on all MTK smart phone chipsets from single core ARM11 to octa-core ARM64 series processors}
-        \item {Analysis of stability issue, kernel crash and watchdog reset, and developed a mini-dump module to enhance the debugging}
-        \item {Responsible for Android CTS certification, helping customers and cooperation with google TAM}
-        \item {Improved MTK platform security, with control on root privilages, group permission, global writable and SELinux policy}
-        \item {Taking part in developping a proprietary runtime exception snapshot system to capture all kinds of abnormal behavior}
-        \item {Taking part in developping a proprietary offline auto bug analysis system based on google's DDMS}
-      \end{cvitems}
+      \begin{cvsubentries} % Description(s) of tasks/responsibilities
+        \cvsubentry
+          {}
+          {Android CTS}
+          {2011-2014}
+          {Android Compatibility Test Suite(CTS) is a mandatory test from google for all devices to market as a Android compatible device. There are more than 20,000 cases covering almost every aspect of Android AOSP requirement. My Responsibility was to insure all Meditek chipsets can pass CTS certification and help our customers with their consultation and problem solving. I had to find the root cause of issue blocking the running of CTS test, and sometimes collaberate with google's Technical Account Manager(TAM) to feedback and ask for waive for some flaw disigned testcases. With some modification, I worked out a windows version CTS test runner which was not supported by AOSP, and consequently all RD and QA could run CTS test on their PC even most of them didn't have a Linux environment.}
+        \cvsubentry
+          {}
+          {Permission \& Security}
+          {2012-2014}
+          {Most Android engineers in MTK were transfered from MTK feature phone team, with little system security concept in mind. Security problem became fatal when we seek collaberation with tier one mobile phone manufactures and I was assigned to solve this problem. After discussion with key customers, I worked out a permission control guideline on root privilages, group permission, global writable file. Then I went on to coordinate developing resources across teams from modem, bluetooth, wifi, gps, fm, factory tool, debug tool, OTA, video, audio, graphics, sdcard, and finally we were recognized for our quick response and excellent work by the customers. This was a big step for Mediatek's success on Android smart phone chipset market.}
+        \cvsubentry
+          {}
+          {Android Exception Engine}
+          {2012-2015}
+          {Android Exception Engine(AEE) a Mediatek proprietary Android device side runtime debug tool, developed based on AOSP debuggerd, with a lot of critical debug function improvement, including runtime exception snapshot, runtime call stack dump, coredump, crash dump and etc. It has cross layer full support of lk, linux kernel, native c/c++, and Java, and works as the Mediatek Android debug core system. This was a project maintained by 5-6 members, and my responsibility mostly went to lk and linux kernel, and sometimes native c/c++.}
+        \cvsubentry
+          {}
+          {Mediatek GAT}
+          {2011-2012}
+          {Graphical Android Toolkit is a Mediatek proprietary PC side debug tool built on top of google's DDMS, with many new features, including native(non-java) process debug, kernel/native c/java runtime call stack dump, kernel log capturing, ftrace support, interaction with Mediatek's device side AEE tool and etc. I was one of two main contributors in this new startup project, focusing on the Android related logic implementation.}
+        \cvsubentry
+          {}
+          {Mediatek Logviewer}
+          {2011-2014}
+          {Mediatek Logviewer is another Mediatek proprietary PC side debug tool, developed with RCP technology. It is designed to work in offline mode(without connection to Android device required) to facilitate the analysis of logs saved by GAT and AEE. Also in later phase with some kind of intelligence to dispatch the bug to the right module owner which is quite helpful to QA team and greatly boost the efficiecy of problem solving. Designed with python plugin support from the start, this allows great flexibility to improve the intelligence to classify bugs with the help of experts from different domain. I was one of two main contributors in this project and was responsible for the initial plugins support for Android AOSP java/native/kernel layer exception analysis}
+        \cvsubentry
+          {}
+          {AOSP Toolchain}
+          {2011-2014}
+          {In the begining time of AOSP, google did not manage to catch up the pace of upstream toolchain, like gcc, gdb, python. In order to use python extensions for gdb, we had to maintain private toolchain. I started from latest upstream gdb and python, and with a lot search and survey, finally got it work in the right way. We had a working gdb with python extension support on both linux and windows platform.}
+        \cvsubentry
+          {}
+          {Stability Issue Analysis}
+          {2013-2015}
+          {At the product develop stage, there is active feature change, and this usually leads to system unstability. One of my key responsibility was to analyse the root cause of kernel crash and watchdog reset, boot failure, device freeze and etc. I got comprehensive understanding to many kernel modules through long-term practice, including phisical and virtual memory management, file system, thread, task, scheduler, lock. Later my experience in analysing these failures were turned into the python scripts in Mediatek Logviewer, resulting to a great relief of my work presure and faster problems solving.}
+        \cvsubentry
+          {}
+          {Linux Kernel Mini-Dump}
+          {2014-2015}
+          {There are two major options to debug linux kernel crash, one is the oops message dump to kernel log, the other is full ram dump. Oops message only contains very basic call stack information which is hardly enough to analyse the crash, and ram dump is very helpful but with very huge size. And with the expansion of Android smart phone DRAM size, the situation was getting worse. Then I designed a new solution called mini-dump, with size only 1-3MB, could give enough debug information in 70\% cases . Mini-dump is a ELF format kernel dump, can be directly loaded by gdb, result in much faster debugging.}
+        \cvsubentry
+          {}
+          {AOSP Develop \& Debug Support}
+          {2013-2015}
+          {With my experience increasing during practice, I gave suggestions to other team especially on permission, inter-module communication, and debugging. At the same time, our bug analysis system became more powerful with the contribution of different teams.}
+      \end{cvsubentries}
     }
-
 
 %---------------------------------------------------------
 \end{cventries}
